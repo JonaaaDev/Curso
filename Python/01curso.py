@@ -21,3 +21,4 @@ La función len() devuelve la cantidad de caracteres en una cadena de texto.
 Cuenta letras, espacios y signos.
 """
 print(len("¿Cuántos caracteres hay aquí?"))
+# salida -> 29
