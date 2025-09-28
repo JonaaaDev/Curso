@@ -1,16 +1,23 @@
-#todo sobre la función print
+# todo sobre la función print
 
-#imprimir texto
+# imprimir texto
 print("Hola Jonathan")
 
-#formatos de print
+# formatos de print
 print("hacer salto de linea -> \nprueba.")
 print("hacer tab (tabulación) -> \tprueba.")
 
-#cancelar formato
+# cancelar formato
 print("hacer salto de linea -> \\nprueba.")
 print("hacer tab (tabulación) -> \\tprueba.")
 
-#varias líneas
+# varias líneas
 print("""un texto de varias líneas 
-usando tres comillas""")
+usando tres comillas.""")
+
+# contar los caracteres
+"""
+La función len() devuelve la cantidad de caracteres en una cadena de texto.
+Cuenta letras, espacios y signos.
+"""
+print(len("¿Cuántos caracteres hay aquí?"))
