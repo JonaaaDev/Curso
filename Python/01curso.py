@@ -1,3 +1,5 @@
+#todo sobre la función print
+
 #imprimir texto
 print("Hola Jonathan")
 
