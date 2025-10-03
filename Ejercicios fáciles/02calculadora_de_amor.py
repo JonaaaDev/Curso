@@ -2,8 +2,8 @@ import random
 
 # entrada
 while True:
-    n = str(input("Introduce tu nombre: ")).upper().strip()
-    c = str(input("Introduce el nombre: ")).upper().strip()
+    n = (input("Introduce tu nombre: ")).upper().strip()
+    c = (input("Introduce el nombre: ")).upper().strip()
 
     # condiciones
     if not n or not c:
