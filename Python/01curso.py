@@ -15,10 +15,5 @@ print("hacer tab (tabulación) -> \\tprueba.")
 print("""un texto de varias líneas 
 usando tres comillas.""")
 
-# contar los caracteres
-"""
-La función len() devuelve la cantidad de caracteres en una cadena de texto.
-Cuenta letras, espacios y signos.
-"""
-print(len("¿Cuántos caracteres hay aquí?"))
-# salida -> 29
+# texto en mayúsculas
+print("texto en mayúsculas".upper())
