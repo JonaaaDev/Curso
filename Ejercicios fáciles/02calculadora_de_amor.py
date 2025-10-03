@@ -3,7 +3,7 @@ import random
 # entrada
 while True:
     n = str(input("Introduce tu nombre: ")).upper().strip()
-    c = str(input("introduce el nombre: ")).upper().strip()
+    c = str(input("Introduce el nombre: ")).upper().strip()
 
     # condiciones
     if not n or not c:
@@ -16,11 +16,11 @@ while True:
     break        
 # condiciones si todo sale bien
 if (n == "JONATHAN" and c == "ANGELINE") or (n == "ANGELINE" and c == "JONATHAN"):
-    print("100% de amor")
+    print("Hay 100% de amor.")
 
 else:
     amor = random.randrange(100)
-    print(f"{amor}% de amor")
+    print(f"Hay {amor}% de amor.")
 
 """
 Le daría un 7/10.
