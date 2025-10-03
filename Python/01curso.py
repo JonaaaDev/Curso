@@ -15,5 +15,8 @@ print("hacer tab (tabulación) -> \\tprueba.")
 print("""un texto de varias líneas 
 usando tres comillas.""")
 
-# texto en mayúsculas
-print("texto en mayúsculas".upper())
+# texto en mayúscula
+print("texto en mayúscula".upper())
+
+# texto en minúscula
+print("texto en minúscula".lower())
