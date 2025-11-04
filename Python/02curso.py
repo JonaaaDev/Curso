@@ -9,3 +9,6 @@ mi_float = 9.99
 
 # Boolean True/False
 mi_bool = True
+
+# NoneType (sin valor)
+mi_none = None
