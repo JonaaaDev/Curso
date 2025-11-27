@@ -1,7 +1,5 @@
 import pygame
-
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+from config import SCREEN_WIDTH, SCREEN_HEIGHT
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
