@@ -3,6 +3,7 @@ import random
 import json
 import os
 
+from config import SCREEN_WIDTH, SCREEN_HEIGHT, SCORES_FILE
 from player import Player
 from mapa import draw_background, display_score
 from meteoritos import Meteorite
@@ -10,8 +11,6 @@ from meteoritos import Meteorite
 pygame.init()
 pygame.font.init()
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Mi Juego Pygame")
 
@@ -25,17 +24,15 @@ GAME_OVER_FONT = pygame.font.Font(None, 74)
 RESTART_FONT = pygame.font.Font(None, 50)
 SCORE_FONT = pygame.font.Font(None, 36)
 
-SCORES_FILE = "pygame/high_score.json"
-
 PLAYING = 0
 GAME_OVER = 1
 game_state = PLAYING
 
-player = Player()
-all_sprites = pygame.sprite.Group()
-meteorites = pygame.sprite.Group()
+player = None
+all_sprites = None
+meteorites = None
 score = 0
-high_score = 0
+high_score = 0 
 
 meteorite_timer = pygame.USEREVENT + 1
 
@@ -51,21 +48,22 @@ def load_high_score():
 
 def save_high_score(current_score):
     global high_score
-    loaded_high_score = load_high_score()
-    if current_score > loaded_high_score:
+    current_saved_high_score = load_high_score()
+
+    if current_score > current_saved_high_score:
         high_score = current_score
         with open(SCORES_FILE, 'w') as f:
             json.dump({"high_score": high_score}, f)
     else:
-        high_score = loaded_high_score
+        high_score = current_saved_high_score 
 
 
 def reset_game():
     global player, all_sprites, meteorites, score, game_state, high_score
     
-    player.kill()
-    for sprite in all_sprites:
-        sprite.kill()
+    if all_sprites is not None:
+        for sprite in all_sprites:
+            sprite.kill()
 
     player = Player()
     all_sprites = pygame.sprite.Group()
@@ -74,11 +72,10 @@ def reset_game():
     
     score = 0
     game_state = PLAYING
+    high_score = load_high_score() 
     pygame.time.set_timer(meteorite_timer, 1000)
 
-high_score = load_high_score()
 reset_game()
-pygame.time.set_timer(meteorite_timer, 1000)
 
 running = True
 while running:
@@ -95,7 +92,7 @@ while running:
         elif game_state == GAME_OVER:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
-                if restart_button_rect.collidepoint(mouse_pos):
+                if 'restart_button_rect' in locals() and restart_button_rect.collidepoint(mouse_pos):
                     reset_game()
 
     if game_state == PLAYING:
@@ -124,7 +121,6 @@ while running:
         high_score_text = SCORE_FONT.render(f"Récord: {high_score}", True, WHITE)
         high_score_rect = high_score_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 20))
         screen.blit(high_score_text, high_score_rect)
-
 
         restart_text = RESTART_FONT.render("REINICIAR", True, WHITE)
         restart_button_rect = restart_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100))
