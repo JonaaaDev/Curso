@@ -1,8 +1,6 @@
 import pygame
 import random
-
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+from config import SCREEN_WIDTH, SCREEN_HEIGHT
 
 class Meteorite(pygame.sprite.Sprite):
     def __init__(self):
