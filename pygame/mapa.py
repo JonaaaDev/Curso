@@ -1,7 +1,5 @@
 import pygame
-
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+from config import SCREEN_WIDTH, SCREEN_HEIGHT
 
 def draw_background(screen):
     screen.fill((50, 50, 50))
