@@ -32,7 +32,7 @@ if inv == usuario:
     print("Son los mismos nombres.")
     exit()
 
-if inv == "Jonathan" or inv == "Angeline" and usuario == "Jonathan" or usuario == "Angeline":
+if (inv == "Jonathan" or inv == "Angeline") and (usuario == "Jonathan" or usuario == "Angeline"):
     num = 100
     print(f"El amor entre {usuario} y {inv} es: {num}%!")
 else:
